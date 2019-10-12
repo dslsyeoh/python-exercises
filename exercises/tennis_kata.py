@@ -1,3 +1,7 @@
+#  Author Steven Yeoh
+#  Copyright (c) 2019. All rights reserved.
+
+
 class Player:
 
     def __init__(self, name, score):
