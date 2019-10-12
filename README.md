@@ -1,0 +1,1 @@
+This repository is just for my python learning (Beginner python)
