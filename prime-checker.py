@@ -1,3 +1,7 @@
+
+#  Author Steven Yeoh
+#  Copyright (c) 2019. All rights reserved.
+
 number_list = [num for num in range(1, 100)]
 
 
