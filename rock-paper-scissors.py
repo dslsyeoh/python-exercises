@@ -14,12 +14,12 @@ def bot_choice():
     return random.choice(["r", "p", "s"])
 
 
-def format_choice(c):
-    if c is "r":
+def format_choice(choice):
+    if choice is "r":
         return "Rock"
-    elif c is "p":
+    elif choice is "p":
         return "Paper"
-    elif c is "s":
+    elif choice is "s":
         return "Scissors"
 
 
