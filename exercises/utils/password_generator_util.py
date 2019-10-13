@@ -18,7 +18,7 @@ def password_generation_configuration():
     finally:
         print("Password security level: [E]asy, [M]edium, [H]ard")
         security_level = input("Enter your password security level: ").upper()
-    return password_length, security_level
+    return password_length, security_level, security_level_is_valid(security_level)
 
 
 def security_level_is_valid(security_level):

@@ -2,13 +2,12 @@
 #  Copyright (c) 2019. All rights reserved.
 
 import time
-from exercises.utils.password_generator_util import generate_password, security_level_is_valid, \
-    password_generation_configuration
+from exercises.utils.password_generator_util import generate_password, password_generation_configuration
 
 
 print("\n======================= PASSWORD GENERATOR =======================")
-password_length, security_level = password_generation_configuration()
-if security_level_is_valid(security_level):
+password_length, security_level, is_configuration_valid = password_generation_configuration()
+if is_configuration_valid:
     print("Generated password: {}".format(generate_password(password_length, security_level)))
 else:
     print("Password security level incorrect, Please try again.")
