@@ -1,4 +1,4 @@
-This repository is just for my python learning (Beginner)
+This repository is just for my python learning as a python starter (Beginner)
 
 Completed exercises
 --
