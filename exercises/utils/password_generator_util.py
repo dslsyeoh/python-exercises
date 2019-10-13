@@ -20,9 +20,8 @@ def generate_password(password_length, security_level):
     for n in range(0, password_length):
         group_index = randomize(password_groups)
         repetitive_count = repetitive_counter_increment(old_group_index, group_index, repetitive_count)
-        if repetitive_count == REPETITIVE_LIMIT:
-            group_index = password_algorithm(password_groups, old_group_index, group_index)
-            repetitive_count = 0
+        repetitive_count, group_index = password_algorithm(password_groups, old_group_index,
+                                                           group_index, repetitive_count)
         group_items = password_groups[group_index]
         generated_words.append(group_items[randomize(group_items)])
         old_group_index = group_index
@@ -39,10 +38,12 @@ def repetitive_counter_increment(old_group_index, group_index, counter):
     return counter
 
 
-def password_algorithm(password_groups, old_group_index, group_index):
-    while old_group_index is not None and old_group_index == group_index:
-        group_index = randomize(password_groups)
-    return group_index
+def password_algorithm(password_groups, old_group_index, group_index, repetitive_count):
+    if repetitive_count == REPETITIVE_LIMIT:
+        while old_group_index is not None and old_group_index == group_index:
+            group_index = randomize(password_groups)
+        repetitive_count = 0
+    return repetitive_count, group_index
 
 
 def randomize(item):
