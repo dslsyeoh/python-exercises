@@ -9,6 +9,17 @@ security_level_dict = {"E": 2, "M": 3, "H": 4}
 REPETITIVE_LIMIT = 3
 
 
+def password_generation_configuration():
+    try:
+        password_length = int(input("Enter your password length: "))
+    except ValueError:
+        password_length = 15
+    finally:
+        print("Password security level: [E]asy, [M]edium, [H]ard")
+        security_level = input("Enter your password security level: ").upper()
+    return password_length, security_level
+
+
 def security_level_is_valid(security_level):
     return True if security_level_dict.get(security_level) else False
 
