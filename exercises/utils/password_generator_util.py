@@ -1,5 +1,6 @@
 import string
 import random
+import time
 
 numbers = ''.join(map(str, [num for num in range(0, 10)]))
 
@@ -25,6 +26,9 @@ def security_level_is_valid(security_level):
 
 
 def generate_password(password_length, security_level):
+    print("Generating password...")
+    # stimulate generate
+    time.sleep(1)
     generated_words = []
     old_group_index = None
     password_groups = get_password_groups(security_level)
