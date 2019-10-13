@@ -18,12 +18,12 @@ def generate_password(password_length, security_level):
     generated_words = []
     password_groups = get_password_groups(security_level)
     for n in range(0, password_length):
-        group_items = password_groups[get_index(password_groups)]
-        generated_words.append(group_items[get_index(group_items)])
+        group_items = password_groups[randomize(password_groups)]
+        generated_words.append(group_items[randomize(group_items)])
     return ''.join(map(str, generated_words))
 
 
-def get_index(item):
+def randomize(item):
     return random.randint(0, len(item) - 1)
 
 
