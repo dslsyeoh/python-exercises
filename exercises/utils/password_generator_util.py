@@ -9,6 +9,10 @@ security_level_dict = {"E": 2, "M": 3, "H": 4}
 REPETITIVE_LIMIT = 3
 
 
+def security_level_is_valid(security_level):
+    return True if security_level_dict.get(security_level) else False
+
+
 def generate_password(password_length, security_level):
     generated_words = []
     old_group_index = None
