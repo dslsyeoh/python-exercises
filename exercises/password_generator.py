@@ -1,32 +1,20 @@
 #  Author Steven Yeoh
 #  Copyright (c) 2019. All rights reserved.
 
-import string
 import time
-
-numbers = [num for num in range(0, 10)]
-lowercase_words = string.ascii_lowercase
-uppercase_words = string.ascii_uppercase
-punctuations = string.punctuation
-
-
-def identify_level(input_level):
-    if input_level == "E":
-        return "Easy"
-    elif input_level == "N":
-        return "Normal"
-    elif input_level == "H":
-        return "Hard"
-    pass
+from exercises.utils.password_generator_util import generate_password
 
 
 print("\n======================= PASSWORD GENERATOR =======================")
-print("Password generation level: [E]asy, [N]ormal, [H]ard")
-level = identify_level(input("Enter your password generation level: ").upper())
-if level is None:
-    print("Password generation level is incorrect!, Please try again.")
+print("Password security level: [E]asy, [M]edium, [H]ard")
+password_length = int(input("Enter your password length: "))
+security_level = input("Enter your security level: ").upper()
+if security_level is None:
+    print("Password security level incorrect!, Please try again.")
 else:
     print("Generating password...")
+    result = generate_password(password_length, security_level)
     time.sleep(2)
-    print("Generated password: {}".format(level))
+    print("Generated password: {}".format(result))
 print("======================= PASSWORD GENERATOR =======================")
+
