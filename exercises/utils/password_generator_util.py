@@ -2,11 +2,8 @@ import string
 import random
 
 numbers = ''.join(map(str, [num for num in range(0, 10)]))
-lowercase_words = string.ascii_lowercase
-uppercase_words = string.ascii_uppercase
-punctuations = string.punctuation
 
-criteria_list = [numbers, lowercase_words, uppercase_words, punctuations]
+criteria_list = [numbers, string.ascii_lowercase, string.ascii_uppercase, string.punctuation]
 security_level_dict = {"E": 2, "M": 3, "H": 4}
 
 REPETITIVE_LIMIT = 3
