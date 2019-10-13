@@ -1,7 +1,6 @@
 #  Author Steven Yeoh
 #  Copyright (c) 2019. All rights reserved.
 
-import time
 from exercises.utils.password_generator_util import generate_password, password_generation_configuration
 
 
