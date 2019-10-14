@@ -1,3 +1,6 @@
+#  Author Steven Yeoh
+#  Copyright (c) 2019. All rights reserved.
+
 import string
 import random
 import time
