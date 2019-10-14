@@ -1,24 +1,27 @@
 #  Author Steven Yeoh
 #  Copyright (c) 2019. All rights reserved.
 
-from exercises.utils import login_util, register_util
+from getpass import getpass
+from exercises.utils import register_util, validate_util
 
 
-def get_form(option):
-    if option == "R":
+def display_form(user_option):
+    if user_option == "R":
         register_form()
-    elif option == "M":
+    elif user_option == "M":
         login_form()
     else:
-        print("Invalid option, please try again.")
+        print("Incorrect option, please try again.")
 
 
 def register_form():
     print("\n=========================== REGISTER ===========================")
     username = input(" Enter username: ")
-    password = input(" Enter password: ")
-    confirm_password = input(" Enter confirm password: ")
-    print("=========================== REGISTER ===========================")
+    password = getpass(" Password: ")
+    confirm_password = getpass(" Enter confirm password: ")
+    print("=========================== REGISTER ===========================\n")
+    errors = validate_util.validate_user_input(username, password, confirm_password)
+    validate_util.print_errors(errors) if bool(errors) else register_util.add_new_user(username, password)
 
 
 def login_form():

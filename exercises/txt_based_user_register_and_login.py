@@ -1,13 +1,13 @@
 #  Author Steven Yeoh
 #  Copyright (c) 2019. All rights reserved.
 
-from exercises.utils.form_util import get_form
+from exercises.utils.form_util import display_form
 
 print("\n=========================== MENU ===========================")
 print(" [R]egister account")
 print(" [L]ogin")
-user_option = input(" Enter your option: ").upper()
+user_option = input(" Enter option: ").upper()
 print("=========================== MENU ===========================")
-get_form(user_option)
+display_form(user_option)
 
 
