@@ -32,10 +32,10 @@ def print_errors(errors):
 
 
 def user_exists(username):
-    file = read_file()
-    if file is not None:
-        for data in file:
-            if data.split(":")[0].split("=")[1] == username:
-                return True
-        return False
+    with read_file() as file:
+        if file is not None:
+            for data in file:
+                if data.split(":")[0].split("=")[1] == username:
+                    return True
+            return False
     return False

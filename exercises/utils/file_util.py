@@ -1,19 +1,19 @@
 #  Author Steven Yeoh
 #  Copyright (c) 2019. All rights reserved.
 
-import os.path
+import pathlib
 
 
 def read_file():
-    if not os.path.exists("./resources"):
-        os.mkdir("./resources")
+    if not pathlib.Path("./resources").exists():
+        pathlib.Path("./resources").mkdir()
 
-    if os.path.exists("./resources/user_acc.txt"):
+    if pathlib.Path("./resources/user_acc.txt").exists():
         return open("./resources/user_acc.txt", "r")
     else:
         return None
 
 
 def save_new_user_to_file(username, password):
-    file = open("./resources/user_acc.txt", "a+")
-    file.write("username={}:password={}\n".format(username, password))
+    with open("./resources/user_acc.txt", "a+") as file:
+        file.write("username={}:password={}\n".format(username, password))
