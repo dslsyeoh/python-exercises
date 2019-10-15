@@ -22,7 +22,9 @@ def validate_user_credentials(username, password):
     file = read_file()
     for data in file:
         if data.split(":")[0].split("=")[1] == username and data.split(":")[1].split("=")[1].rstrip("\n") == password:
+            file.close()
             return True
+    file.close()
     return False
 
 
@@ -32,10 +34,12 @@ def print_errors(errors):
 
 
 def user_exists(username):
-    with read_file() as file:
-        if file is not None:
-            for data in file:
-                if data.split(":")[0].split("=")[1] == username:
-                    return True
-            return False
+    file = read_file()
+    if file is not None:
+        for data in file:
+            if data.split(":")[0].split("=")[1] == username:
+                file.close()
+                return True
+        file.close()
+        return False
     return False
