@@ -2,9 +2,12 @@
 #  Copyright (c) 2019. All rights reserved.
 
 
+from exercises.utils.file_util import read_file
+
+
 def validate_user_input(username, password, confirm_password):
     error_dict = {}
-    if username is "":
+    if not bool(username):
         error_dict["username_empty"] = "Username cannot be empty."
     elif len(username) < 5:
         error_dict["username_length"] = "Username must be at least 5 characters."
@@ -15,12 +18,24 @@ def validate_user_input(username, password, confirm_password):
     return error_dict
 
 
-def validate_user_login(username, password):
-    # read from txt file to validate username and password
-    pass
+def validate_user_credentials(username, password):
+    file = read_file()
+    for data in file:
+        if data.split(":")[0].split("=")[1] == username and data.split(":")[1].split("=")[1].rstrip("\n") == password:
+            return True
+    return False
 
 
 def print_errors(errors):
     for key in errors.keys():
         print(" {}".format(errors.get(key)))
 
+
+def user_exists(username):
+    file = read_file()
+    if file is not None:
+        for data in file:
+            if data.split(":")[0].split("=")[1] == username:
+                return True
+        return False
+    return False
